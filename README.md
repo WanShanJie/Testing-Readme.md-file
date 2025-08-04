@@ -21,7 +21,7 @@ This script requires **Python 3** and several Python libraries that are not incl
 
 ## ⚙️ 1. Setup Environment
 
-### Step 1: Install Python 3 and pip (if not installed)
+### Step 1: Install Python 3 and pip (if not installed, go to official Python website to get it)
 
 ```bash
 python --version
