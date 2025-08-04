@@ -67,6 +67,7 @@ sudo yum install -y openldap-devel
 
 ## Example Output
 
+```bash
 >>> Successfully connected to LDAP server: ldaps://your-ad-server.example.com:636
 
 >>> Checking configured groups...
@@ -85,7 +86,7 @@ Found 12 members in LDAP group 'App-User-Group'.
 ---------------- Group: DB-Access-Group ------------------
 Found 2 members in LDAP group 'DB-Access-Group'.
 100234, 805678
-
+```
 
 
 
