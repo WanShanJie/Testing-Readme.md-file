@@ -1,4 +1,4 @@
-# LDAP Member List Retrieval
+# Retrieve LDAP Member List - GID
 
 This Python script retrieves users from LDAP groups and displays them, useful for syncing or auditing Zabbix users with LDAP Active Directory.
 
