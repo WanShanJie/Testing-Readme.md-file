@@ -75,17 +75,15 @@ sudo yum install -y openldap-devel
 >>> Checking memberships for each configured group...
 
 ---------------- Group: App-Admin-Group ------------------
-Found 4 members in LDAP group 'App-Admin-Group'.
-100234, 100567, 219874, 453321
+Found 3 members in LDAP group 'App-Admin-Group'.
+123456, 789018, 178200
 
 ---------------- Group: App-User-Group ------------------
-Found 12 members in LDAP group 'App-User-Group'.
-769194, 789012, 794321, 801234, 805678, 811122, 823456, 839876, 845432, 856789
-861234, 876543
-
+Found 3 members in LDAP group 'App-User-Group'.
+123456, 789018, 178200
 ---------------- Group: DB-Access-Group ------------------
-Found 2 members in LDAP group 'DB-Access-Group'.
-100234, 805678
+Found 3 members in LDAP group 'DB-Access-Group'.
+123456, 789018, 178200
 ```
 
 
