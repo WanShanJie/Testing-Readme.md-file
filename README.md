@@ -3,7 +3,8 @@
 2. ldap-member-list-script-gid.py
 3. ldap-member-list-script.py
 
-* scripts can be found in the production server sgspizbxl01a, path: /etc/zabbix/externalscripts
+** scripts can be found in the production server, sgspizbxl01a
+** path: /etc/zabbix/externalscripts
 ----------------------------------------------------------------
 
 ## Purpose
@@ -13,13 +14,13 @@
 3. Display the LDAP members of the groups config in zabbix-ldap.conf in Username - GID 
 ----------------------------------------------------------------
 
-## 🧰 Prerequisites
+## Prerequisites
 
 This script requires **Python 3** and several Python libraries.
 
 ----------------------------------------------------------------
 
-## ⚙️ 1. Setup Environment
+## 1. Setup Environment
 
 ### Step 1: Install Python 3 and pip (if not installed, go to Software Center get it)
 
