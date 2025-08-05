@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Purpose: The LDAP_Member_List script is used to retrieve LDAP members only - Modify from zabbix-ldap-sync-main-script.py script
-Usage: python3 /ur_path/zabbix-ldap-prodori-mod-20250507-2.py -l -f /ur_path/zabbix-ldap.conf
-Created: 2025-Jul-17 Wan
-
+Purpose: The LDAP_Member_List script is used to retrieve LDAP members only
+Usage: python3 /ur_path/ldap-member-list-script.py -l -f /ur_path/zabbix-ldap.conf
+Modify: 2025-Jul-17 Wan -- Modify from zabbix-ldap-sync-main-script.py script
 """
 
 import random
