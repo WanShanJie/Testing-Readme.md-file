@@ -1,26 +1,27 @@
-# Retrieve LDAP Member List
+# LDAP Related Scripts
+1. zabbix-ldap-sync-main-script.py
+2. ldap-member-list-script-gid.py
+3. ldap-member-list-script.py
 
-This Python script retrieves users from LDAP groups and displays them, useful for syncing or auditing Zabbix users with LDAP Active Directory.
-
+scripts can be found in the production server sgspizbxl01a, path: /etc/zabbix/externalscripts
 ----------------------------------------------------------------
 
 ## Purpose
 
-- Connect to an LDAP/AD server using credentials
-- Fetch LDAP group members
-- Compare and display usernames-gid in each group
-
+1. Use to sync LDAP members with Zabbix users based on the groups config in zabbix-ldap.conf
+2. Display the LDAP members of the groups config in zabbix-ldap.conf in GID
+3. Display the LDAP members of the groups config in zabbix-ldap.conf in Username - GID 
 ----------------------------------------------------------------
 
 ## 🧰 Prerequisites
 
-This script requires **Python 3** and several Python libraries that are not included by default.
+This script requires **Python 3** and several Python libraries.
 
 ----------------------------------------------------------------
 
 ## ⚙️ 1. Setup Environment
 
-### Step 1: Install Python 3 and pip (if not installed, go to official Python website to get it)
+### Step 1: Install Python 3 and pip (if not installed, go to Software Center get it)
 
 * Checking the existance of python and pip 
 ```bash
@@ -37,12 +38,27 @@ pip list
 ```
 
 ### Step 3: Run the Script
+1. python3 <path/script.py> -l -f <path/zabbix.conf> > <path/output.log> 2>&1
+2. python3 <path/script.py> -l -f <path/zabbix.conf>
 
-python3 <script.py> -l -f <zabbix.conf>
+🔸 The -l flag is used to list LDAP members
+🔸 The -f flag specifies the configuration file
 
+First Script
 ```bash
-python3 ldap-member-list-script.py -l -f zabbix-ldap.conf
+python3 /etc/zabbix/externalscripts/zabbix-ldap-sync-main-script.py -l -f /etc/zabbix/externalscripts/zabbix-ldap.conf > /etc/zabbix/externalscripts/zabbix-ldap-sync-output.log 2>&1
 ```
+
+Second Script
+```bash
+python3 /etc/zabbix/externalscripts/ldap-member-list-script-gid.py -l -f /etc/zabbix/externalscripts/zabbix-ldap.conf
+```
+
+Third Script
+```bash
+python3 /etc/zabbix/externalscripts/ldap-member-list-script.py -l -f /etc/zabbix/externalscripts/zabbix-ldap.conf
+```
+
 🔸 The -l flag is used to list LDAP members
 🔸 The -f flag specifies the configuration file
 
@@ -64,7 +80,79 @@ sudo yum install -y openldap-devel
 ```
 ----------------------------------------------------------------
 
-## Example Output (GID)
+## Example Output (First Script)
+
+```bash
+>>> Script refresh time: 2025-08-04 20:45:04
+
+>>> Successfully connected to LDAP server: ldaps://adgtm.seagate.com:636/
+>>> Successfully connected to Zabbix server: https://zabgate.sing.seagate.com/
+
+>>> Fetching initial Zabbix data...
+    Found 761 users and 29 groups in Zabbix. 
+
+
+>>> Checking configured groups...
+    -----No missing zabbix groups-----
+
+
+>>> Comparing memberships for each configured group...
+
+---------------- Group: sgbdc-zabbix-prd-administrators ------------------
+    Found 13 members in LDAP group 'sgbdc-zabbix-prd-administrators'.
+    Checking Zabbix (Group ID: 21)...
+    Found 13 members in Zabbix group 'sgbdc-zabbix-prd-administrators'.
+    All LDAP members are present in the Zabbix group.
+
+
+---------------- Group: sgbdc-zabbix-prd-gfo ------------------
+    Found 26 members in LDAP group 'sgbdc-zabbix-prd-gfo'.
+    Checking Zabbix (Group ID: 30)...
+    Found 26 members in Zabbix group 'sgbdc-zabbix-prd-gfo'.
+    All LDAP members are present in the Zabbix group.
+
+
+---------------- Group: sgbdc-zabbix-prd-operators ------------------
+    Found 48 members in LDAP group 'sgbdc-zabbix-prd-operators'.
+    Checking Zabbix (Group ID: 31)...
+    Found 48 members in Zabbix group 'sgbdc-zabbix-prd-operators'.
+    All LDAP members are present in the Zabbix group.
+
+
+---------------- Group: sgbdc-zabbix-prd-sysadmin-dba ------------------
+    Found 48 members in LDAP group 'sgbdc-zabbix-prd-sysadmin-dba'.
+    Checking Zabbix (Group ID: 32)...
+    Found 48 members in Zabbix group 'sgbdc-zabbix-prd-sysadmin-dba'.
+    All LDAP members are present in the Zabbix group.
+
+
+---------------- Group: sgbdc-zabbix-prd-users ------------------
+    Found 404 members in LDAP group 'sgbdc-zabbix-prd-users'.
+    Checking Zabbix (Group ID: 35)...
+    Found 404 members in Zabbix group 'sgbdc-zabbix-prd-users'.
+    All LDAP members are present in the Zabbix group.
+
+
+---------------- Group: sgbdc-zabbix-prd-webadmin ------------------
+    Found 1 members in LDAP group 'sgbdc-zabbix-prd-webadmin'.
+    Checking Zabbix (Group ID: 33)...
+    Found 1 members in Zabbix group 'sgbdc-zabbix-prd-webadmin'.
+    All LDAP members are present in the Zabbix group.
+
+LDAP_API_Call:  3
+Zbx_API_Call:  16 
+
+>>> Disconnecting from LDAP Server...
+>>> Successfully disconnected LDAP Server.
+
+>>> Disconnecting from Zabbix Server...
+>>> Successfully disconnected from Zabbix Server.
+
+Execution time: 0.99019 seconds
+```
+
+
+## Example Output (Second Script)
 
 ```bash
 >>> Successfully connected to LDAP server: ldaps://your-ad-server.example.com:636
@@ -88,7 +176,7 @@ Found 4 members in LDAP group 'DB-Access-Group'.
 
 ```
 
-## Example Output (Username-GID)
+## Example Output (Third Scripts)
 ```bash
 >>> Successfully connected to LDAP server: ldaps://your-ad-server.example.com:636
 
