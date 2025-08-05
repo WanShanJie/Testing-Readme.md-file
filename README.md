@@ -23,9 +23,9 @@ This script requires **Python 3** and several Python libraries that are not incl
 
 ### Step 1: Install Python 3 and pip (if not installed, go to official Python website to get it)
 
+* Checking the existance of python and pip 
 ```bash
 python --version
-python -m pip install --upgrade pip
 pip --version
 ```
 
@@ -65,7 +65,7 @@ sudo yum install -y openldap-devel
 ```
 ----------------------------------------------------------------
 
-## Example Output
+## Example Output (GID)
 
 ```bash
 >>> Successfully connected to LDAP server: ldaps://your-ad-server.example.com:636
@@ -76,18 +76,40 @@ sudo yum install -y openldap-devel
 
 ---------------- Group: App-Admin-Group ------------------
 Found 4 members in LDAP group 'App-Admin-Group'.
-100234, 100567, 219874, 453321
+113451, 123456, 234567, 345678
 
 ---------------- Group: App-User-Group ------------------
-Found 12 members in LDAP group 'App-User-Group'.
-769194, 789012, 794321, 801234, 805678, 811122, 823456, 839876, 845432, 856789
-861234, 876543
+Found 4 members in LDAP group 'App-User-Group'.
+113451, 123456, 234567, 345678
+
 
 ---------------- Group: DB-Access-Group ------------------
-Found 2 members in LDAP group 'DB-Access-Group'.
-100234, 805678
+Found 4 members in LDAP group 'DB-Access-Group'.
+113451, 123456, 234567, 345678
+
 ```
 
+## Example Output (Username-GID)
+```bash
+>>> Successfully connected to LDAP server: ldaps://your-ad-server.example.com:636
 
+>>> Checking configured groups...
+
+>>> Checking memberships for each configured group...
+
+---------------- Group: App-Admin-Group ------------------
+Found 4 members in LDAP group 'App-Admin-Group'.
+AB-100234, ABC-100567, ABCD-219874, ABCDE453321
+
+---------------- Group: App-User-Group ------------------
+Found 4 members in LDAP group 'App-User-Group'.
+AB-100234, ABC-100567, ABCD-219874, ABCDE453321
+
+
+---------------- Group: DB-Access-Group ------------------
+Found 4 members in LDAP group 'DB-Access-Group'.
+AB-100234, ABC-100567, ABCD-219874, ABCDE453321
+
+```
 
 
