@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Purpose: The LDAP_Member_List script is used to retrieve LDAP members only
-Usage: python3 /ur_path/ldap-member-list-script.py -l -f /ur_path/zabbix-ldap.conf
-Modify: 2025-Jul-17 Wan -- Modify from zabbix-ldap-sync-main-script.py script
+Purpose: The LDAP_Member_List script is used to retrieve LDAP members in usernmae - gid only
+Usage: python3 /etc/zabbix/externalscripts/ldap-member-list-script.py -l -f /etc/zabbix/externalscripts/zabbix-ldap.conf
+Modify: 2025-Jul-17 Wan
 """
 
 import random
