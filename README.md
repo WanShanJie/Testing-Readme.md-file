@@ -3,7 +3,7 @@
 2. ldap-member-list-script-gid.py
 3. ldap-member-list-script.py
 
-* scripts can be found in the production server, sgspizbxl01a
+#### scripts can be found in the production server, sgspizbxl01a
 #### path: /etc/zabbix/externalscripts
 ----------------------------------------------------------------
 
@@ -59,9 +59,6 @@ Third Script
 ```bash
 python3 /etc/zabbix/externalscripts/ldap-member-list-script.py -l -f /etc/zabbix/externalscripts/zabbix-ldap.conf
 ```
-
-🔸 The -l flag is used to list LDAP members
-🔸 The -f flag specifies the configuration file
 
 ----------------------------------------------------------------
 
