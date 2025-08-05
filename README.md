@@ -3,7 +3,7 @@
 2. ldap-member-list-script-gid.py
 3. ldap-member-list-script.py
 
-scripts can be found in the production server sgspizbxl01a, path: /etc/zabbix/externalscripts
+*scripts can be found in the production server sgspizbxl01a, path: /etc/zabbix/externalscripts
 ----------------------------------------------------------------
 
 ## Purpose
