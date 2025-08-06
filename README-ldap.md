@@ -76,6 +76,11 @@ sudo yum install -y python3.9-devel
 ```bash
 sudo yum install -y openldap-devel
 ```
+
+### GNU Compiler Collection (GCC) is missing
+```bash
+sudo yum install gcc python3-devel
+```
 ----------------------------------------------------------------
 
 ## Example Output (First Script)
