@@ -62,7 +62,7 @@ python3 /etc/zabbix/externalscripts/ldap-member-list-script.py -l -f /etc/zabbix
 
 ----------------------------------------------------------------
 
-## 🧱 2. Common System-Level Dependencies
+## 2. Common System-Level Dependencies
 
 If you are on RHEL / CentOS / Oracle Linux / Fedora, you might need additional system libraries.
 
@@ -77,7 +77,7 @@ sudo yum install -y python3.9-devel
 sudo yum install -y openldap-devel
 ```
 
-### GNU Compiler Collection (GCC) is missing
+### C Compiler and Build Tools
 ```bash
 sudo yum install gcc python3-devel
 ```
