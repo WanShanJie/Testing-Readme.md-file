@@ -72,7 +72,7 @@ If you are on RHEL / CentOS / Oracle Linux / Fedora, you might need additional s
 sudo yum install -y python3.9-devel
 ```
 
-### LDAP Libraries (needed by python-ldap)
+### LDAP Libraries, needed by python-ldap (e.g. lber.h library)
 ```bash
 sudo yum install -y openldap-devel
 ```
